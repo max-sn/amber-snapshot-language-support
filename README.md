@@ -10,10 +10,16 @@ This extension adds language support for the [syrupy](https://syrupy-project.git
 
 ## Release Notes
 
-### 1.0.0
+### [1.0.0]
 
 Initial release.
+
+### Unreleased
+
+-
 
 ## AI disclaimer
 
 The outline symbol provider for the Amber Snapshot language has been created with support from Copilot.
+
+[1.0.0]: https://github.com/max-sn/amber-snapshot-language-support/tree/v1.0.0
