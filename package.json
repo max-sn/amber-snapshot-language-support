@@ -1,0 +1,25 @@
+{
+  "name": "amber-snapshot-language-support",
+  "displayName": "Amber Snapshot language support",
+  "description": "Simple language support for syrupy Amber snapshot files",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "amber",
+      "aliases": ["Amber Snapshot", "amber"],
+      "extensions": [".ambr"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "amber",
+      "scopeName": "source.amber",
+      "path": "./syntaxes/amber.tmLanguage.json"
+    }]
+  }
+}
