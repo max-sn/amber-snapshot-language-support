@@ -1,32 +1,40 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Amber Snapshot",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.amber",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.amber",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.amber",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.amber"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Amber Snapshot",
+  "patterns": [
+    {
+      "include": "#serializer-version"
+    },
+    {
+      "include": "#snapshot"
+    }
+  ],
+  "repository": {
+    "serializer-version": {
+      "name": "keyword.serializer-version.amber",
+      "match": "#\\sserializer\\sversion:\\s\\d"
+    },
+    "snapshot": {
+      "name": "snapshot.embedded.python",
+      "begin": "^# name: .*?$",
+      "end": "^# ---$",
+      "beginCaptures": {
+        "0": {
+          "name": "keyword.control.amber.snapshot.open"
+        }
+      },
+      "endCaptures": {
+        "0": {
+          "name": "keyword.control.amber.snapshot.close"
+        }
+      },
+      "contentName": "meta.embedded.python",
+      "patterns": [
+        {
+          "include": "source.python"
+        }
+      ]
+    }
+  },
+  "scopeName": "source.amber"
 }
