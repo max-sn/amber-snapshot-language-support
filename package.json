@@ -9,17 +9,57 @@
   "categories": [
     "Programming Languages"
   ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
   "contributes": {
-    "languages": [{
-      "id": "amber",
-      "aliases": ["Amber Snapshot", "amber"],
-      "extensions": [".ambr"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "amber",
-      "scopeName": "source.amber",
-      "path": "./syntaxes/amber.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "amber",
+        "aliases": [
+          "Amber Snapshot",
+          "amber"
+        ],
+        "extensions": [
+          ".ambr"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "amber",
+        "scopeName": "source.amber",
+        "path": "./syntaxes/amber.tmLanguage.json",
+        "embeddedLanguages": {
+          "meta.embedded.python": "python"
+        }
+      }
+    ],
+    "configurationDefaults": {
+      "[amber]": {
+        "editor.formatOnSave": false,
+        "files.trimTrailingWhitespace": false,
+        "files.trimFinalNewlines": false,
+        "files.insertFinalNewline": false
+      }
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "24.x",
+    "typescript-eslint": "^8.61.1",
+    "eslint": "^10.5.0",
+    "typescript": "^6.0.3",
+    "@vscode/test-cli": "^0.0.15",
+    "@vscode/test-electron": "^3.0.0"
+  },
+  "overrides": {
+    "diff": "^8.0.4",
+    "serialize-javascript": "^7.0.6"
   }
 }
